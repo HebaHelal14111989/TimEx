@@ -4,19 +4,11 @@ import numpy as np
 from scipy.spatial import distance
 import math
 
-
-#For Global min-max normalization, we change lines 209, 210, 225, 226, 962, 963, 978, 979
+#Changing shift length with subsequence length and k value constant
 #Horizontal Paned Pruning + Sharing + Integration (_S)
+
 N = [600]  #Time series data length
-#N = [100, 200, 300, 400, 500, 600]  #Time series data length (Maximum size I have is 630)
 L = [24]   #Subsequence length
-#L = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100]   #Subsequence length
-#L = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
-#L = [14, 20]
-#L = list(range(10,100))
-#K = 1
-#K = 1
-#SHIFT = [1, 2, 3]
 SHIFT = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
 K = 4 #default K = 4
 DEV_SUB_MAX = []
@@ -94,8 +86,8 @@ data = pd.read_csv('AE.csv')  #AU.csv, BR.csv, KR.csv and US.csv
 data1 = pd.read_csv('AE.csv') #AU.csv, BR.csv, KR.csv and US.csv
 
 #print(data)
-UAE_ACTUAL = data['workplaces'].iloc[ : N[0]]
-US_ACTUAL = data['residential'].iloc[ : N[0]]
+UAE_ACTUAL = data['workplaces'].iloc[ : N[0]]  #workplace series
+US_ACTUAL = data['residential'].iloc[ : N[0]]  #residential series
 df = pd.concat([UAE_ACTUAL, US_ACTUAL])
 min_1 = df.min()
 max_1 = df.max()
@@ -146,8 +138,8 @@ for l in L:
     for n in N:
     
         #Select Data from the begining
-        UAE_ACTUALL = data1['workplaces'].iloc[ : n]
-        US_ACTUALL = data1['residential'].iloc[ : n]
+        UAE_ACTUALL = data1['workplaces'].iloc[ : n] #workplace series
+        US_ACTUALL = data1['residential'].iloc[ : n] #residential series
         df = pd.concat([UAE_ACTUAL, US_ACTUAL])
         #min_1 = df.min()
         #max_1 = df.max()
@@ -931,8 +923,8 @@ for l in L:
     for n in N:
     
         #Select Data from the begining
-        UAE_ACTUALL = data1['workplaces'].iloc[ : n]
-        US_ACTUALL = data1['residential'].iloc[ : n]
+        UAE_ACTUALL = data1['workplaces'].iloc[ : n] #workplace series
+        US_ACTUALL = data1['residential'].iloc[ : n] #residential series
                 
         #Data after normalization
         #UAE_ACTUAL = (UAE_ACTUAL-min_1)/(max_1-min_1)
