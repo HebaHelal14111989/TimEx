@@ -4,26 +4,12 @@ import numpy as np
 from scipy.spatial import distance
 import math
 
-
+#Changing k values with subsequence and shift lengths constant
 #Horizontal Paned Pruning + Sharing + Integration  (_R)
+
 N = [600]  #Time series data length
-#N = [100, 200, 300, 400, 500, 600]  #Time series data length (Maximum size I have is 630)
-#L = [20]   #Subsequence length
-#L = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100]   #Subsequence length
-#L = list(range(10,100))
-#L = range(5,61)
-#L = range(5,30)
-L = [24]
-#L = [8, 14, 20, 26, 32, 38, 44, 50, 56]
-#L = range(10,100)
-#L = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
-#L = [8]
-#K = 1
-#K = 1
-#SHIFT = [1, 2, 3, 4, 5]
-sh = 6
-#SHIFT = [5, 10, 15, 20]
-#K = [1, 2]
+L = [24]   #Subsequence length
+sh = 6     #Shift length
 K = [1, 2, 3, 4, 5, 6, 7]
 DEV_SUB_MAX = []
 
@@ -104,8 +90,8 @@ data1 = pd.read_csv('AE.csv') #AU.csv, BR.csv, KR.csv and US.csv
 
 
 #print(data)
-UAE_ACTUAL = data['workplaces'].iloc[ : N[0]]   #UAE_parks  UAE_workplaces
-US_ACTUAL = data['residential'].iloc[ : N[0]]    #US_parks   UAE_residential
+UAE_ACTUAL = data['workplaces'].iloc[ : N[0]]   #workplace series
+US_ACTUAL = data['residential'].iloc[ : N[0]]    #residential series
 df = pd.concat([UAE_ACTUAL, US_ACTUAL])
 min_1 = df.min()
 max_1 = df.max()
@@ -157,8 +143,8 @@ for l in L:
     for n in N:
         #n=200
         #Select Data from the begining
-        UAE_ACTUALL = data1['workplaces'].iloc[ : n]  #UAE_parks   UAE_workplaces
-        US_ACTUALL = data1['residential'].iloc[ : n]  #US_parks    UAE_residential
+        UAE_ACTUALL = data1['workplaces'].iloc[ : n]  #workplace series
+        US_ACTUALL = data1['residential'].iloc[ : n]  #residential series
         df = pd.concat([UAE_ACTUAL, US_ACTUAL])
         #min_1 = df.min()
         #max_1 = df.max()
@@ -970,8 +956,8 @@ for l in L:
     for n in N:
         #n=200
         #Select Data from the begining
-        UAE_ACTUALL = data1['workplaces'].iloc[ : n]   #UAE_parks  UAE_workplaces
-        US_ACTUALL = data1['residential'].iloc[ : n]    #US_parks   UAE_residential
+        UAE_ACTUALL = data1['workplaces'].iloc[ : n]   #workplace series
+        US_ACTUALL = data1['residential'].iloc[ : n]   #residential series
         
         
         #Data after normalization
