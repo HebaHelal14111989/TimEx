@@ -4,6 +4,7 @@ Created on Fri Apr  7 08:43:57 2023
 
 @author: Win10
 """
+#YOU CAN CHANGE SUBSEQUENCE LENGTH, SHIFT LENGTH AND K VALUES
 #Calculate number of operations and savings for linear, pane, and pair
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -14,18 +15,8 @@ import collections
 
 #Pane Window Technique
 L = [600]  #Time series data length
-#R = [20, 30, 40, 50, 60, 70]
-#R = list(range(5,61))
-#R = [8, 14, 26, 38, 44]
-#R = [8, 14, 20, 26, 32, 38]
-R = [12, 24, 36, 48, 54, 60]
-#R = [6, 12, 18, 24, 30, 36, 42, 48, 54, 60]
-
-#R = [10]
-#SHIFT = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
-SHIFT = [1, 6]
-#SHIFT = [1, 2, 3, 4, 5, 6]
-#SHIFT = [1, 2, 3]
+R = [12, 24, 36, 48, 54, 60]  #Subsequence length
+SHIFT = [1, 6]  #Shift length
 K = [1, 2, 3, 4, 5, 6, 7]
 #K = [1, 2]
 sh_list = []
@@ -78,11 +69,11 @@ SHIFT_list = []
 data = pd.read_csv('AE.csv')  #AU.csv, BR.csv, KR.csv and US.csv
 data1 = pd.read_csv('AE.csv') #AU.csv, BR.csv, KR.csv and US.csv
 
-UAE_ACTUALL = data['workplaces'].iloc[ : L[0]]
-US_ACTUALL = data['residential'].iloc[ : L[0]]
+UAE_ACTUALL = data['workplaces'].iloc[ : L[0]] #workplace series
+US_ACTUALL = data['residential'].iloc[ : L[0]] #residential series
 
-UAE_ACTUAL = data['workplaces'].iloc[ : L[0]]
-US_ACTUAL = data['residential'].iloc[ : L[0]]
+UAE_ACTUAL = data['workplaces'].iloc[ : L[0]]  #workplace series
+US_ACTUAL = data['residential'].iloc[ : L[0]]  #residential series
 # print("type of ",type(US_ACTUALL))
 # UAE_ACTUAL = pd.DataFrame({'A' : []})
 # US_ACTUAL = pd.DataFrame({'A' : []})
@@ -114,8 +105,8 @@ for l in R:
         for n in L:
         
             #Select Data from the begining
-            UAE_ACTUALL = data['workplaces'].iloc[ : n]
-            US_ACTUALL = data['residential'].iloc[ : n]
+            UAE_ACTUALL = data['workplaces'].iloc[ : n]  #workplace series
+            US_ACTUALL = data['residential'].iloc[ : n]  #residential series
             #print("UAE_ACTUALL ",UAE_ACTUALL)
                     
             #Data after normalization
@@ -459,7 +450,7 @@ for l in R:
     print("DEV_pane_dict ",DEV_pane_dict)   
     print("DEV_pair_dict ",DEV_pair_dict) 
 
-    #Calculation For RBO with different shift length values R=20
+    #Calculation For TiRBO (RBO for time series data)
     print("views for different shift lengths ", views_dict) 
 
     #How to get views when shift length S = 1
