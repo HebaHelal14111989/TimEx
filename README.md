@@ -14,10 +14,13 @@ TimEx_K: Varies the k values while keeping the subsequence and shift lengths con
 TimEx_Splitting: Splits the data into three segments to monitor behavior under different data characteristics.
 
 # Effectiveness Files
-These two files assess the effectiveness based on the quality of the recommended visualizations:
+One file assesses the effectiveness based on the quality of the recommended visualizations:
 
-Effectiveness_Subsequence_Length(S)_K: Varies the shift length and k value while keeping the subsequence length constant.
-Effectiveness_Subsequence_Length(R)_K: Varies the subsequence length and k value while keeping the shift length constant.
+Effectiveness_Subsequence_Length(R)_K: Varies the subsequence length, k value and shift length.
+
+# CSV files
+There are 5 csv files for 5 countries; United Arab Emirates (AE.csv), United State (US.csv), Brazil (BR.cvs), Korea (KR.csv) and Australlia (AU.csv).
+Each python file is executed seperately for each CSV file and then take the average of the result.
 
 # Usage
 To use TimEx, you will need Python installed on your system. Each file can be executed independently to analyze different aspects of the time series data. Detailed instructions and examples are provided within each script.
