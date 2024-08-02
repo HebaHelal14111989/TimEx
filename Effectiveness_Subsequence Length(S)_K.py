@@ -75,10 +75,8 @@ RBO_dict = {}
 SHIFT_list = []
 
 
-#data = pd.read_csv('E:\\PHD\\Thesis\\UAE_US_parks_ALL_DATASET.csv')  #UAE_US_parks_ALL_DATASET
-#print(data)
-data = pd.read_csv('E:\\PHD\\Thesis\\Spring2024\\Dataset\\AE.csv')  #E:\\PHD\\Thesis\\UAE_US_Parks_ALL_DATASET.csv
-data1 = pd.read_csv('E:\\PHD\\Thesis\\Spring2024\\Dataset\\AE.csv')
+data = pd.read_csv('AE.csv')  #AU.csv, BR.csv, KR.csv and US.csv
+data1 = pd.read_csv('AE.csv') #AU.csv, BR.csv, KR.csv and US.csv
 
 UAE_ACTUALL = data['workplaces'].iloc[ : L[0]]
 US_ACTUALL = data['residential'].iloc[ : L[0]]
