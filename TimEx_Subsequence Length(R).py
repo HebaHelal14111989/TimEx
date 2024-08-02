@@ -87,7 +87,7 @@ data1 = pd.read_csv('AE.csv') #AU.csv, BR.csv, KR.csv and US.csv
 
 
 #print(data)
-UAE_ACTUAL = data['workplaces'].iloc[ : N[0]]   #workplaces series
+UAE_ACTUAL = data['workplaces'].iloc[ : N[0]]   #workplace series
 US_ACTUAL = data['residential'].iloc[ : N[0]]    #residential series
 df = pd.concat([UAE_ACTUAL, US_ACTUAL])
 min_1 = df.min()
