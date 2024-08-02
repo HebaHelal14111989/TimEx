@@ -93,8 +93,8 @@ per_no_prune_savings_list = []
 no_prune_savings_dict = {}
 per_no_prune_savings_dict = {}
 
-data = pd.read_csv('E:\\PHD\\Thesis\\Spring2024\\Dataset\\AE.csv')  
-data1 = pd.read_csv('E:\\PHD\\Thesis\\Spring2024\\Dataset\\AE.csv')
+data = pd.read_csv('AE.csv')  #AU.csv, BR.csv, KR.csv and US.csv
+data1 = pd.read_csv('AE.csv') #AU.csv, BR.csv, KR.csv and US.csv
 
 
 #print(data)
